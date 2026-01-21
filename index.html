@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio | Arquitectura</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header>
+    <h1>Julieta Peluso</h1>
+    <p>Arquitecta / Arquitectura y Diseño</p>
+</header>
+
+<nav>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <p>
+        Estudiante de Arquitectura de tercer año en la Universidad de Buenos Aires. Experiencia en documentacion grafica de proyecto.
+    </p>
+</section>
+
+<section id="proyectos">
+    <h2>Proyectos</h2>
+
+    <div class="galeria">
+
+        <div class="proyecto" onclick="abrirGaleria('residencial')">
+            <img src="images/residencial1.jpg" alt="">
+            <h3>Proyecto Residencial</h3>
+            <p>Vivienda unifamiliar – 2024</p>
+        </div>
+
+        <div class="proyecto" onclick="abrirGaleria('comercial')">
+            <img src="images/comercial1.jpg" alt="">
+            <h3>Edificio Comercial</h3>
+            <p>Centro comercial – 2023</p>
+        </div>
+
+        <div class="proyecto" onclick="abrirGaleria('publico')">
+            <img src="images/publico1.jpg" alt="">
+            <h3>Espacio Público</h3>
+            <p>Plaza urbana – 2022</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>Email: julietapeluso04@gmail.com </p>
+    <p>Instagram: @</p>
+</section>
+
+<footer>
+    <p>© 2026 Tu Nombre</p>
+</footer>
+<!-- MODAL GALERÍA -->
+<div id="modal" class="modal">
+    <span class="cerrar" onclick="cerrarGaleria()">×</span>
+    <div class="modal-contenido" id="modalContenido"></div>
+</div>
+<script>
+const galerias = {
+    residencial: [
+        "images/residencial1.jpg",
+        "images/residencial2.jpg",
+        "images/residencial3.jpg",
+        "images/residencial4.jpg",
+
+    ],
+    comercial: [
+        "images/comercial1.jpg",
+        "images/comercial2.jpg",
+        "images/comercial3.jpg",
+    ],
+    publico: [
+        "images/publico1.jpg",
+        "images/publico2.jpg",
+        "images/publico3.jpg"
+    ]
+};
+
+function abrirGaleria(tipo) {
+    const modal = document.getElementById("modal");
+    const contenido = document.getElementById("modalContenido");
+
+    contenido.innerHTML = "";
+
+    galerias[tipo].forEach(ruta => {
+        const img = document.createElement("img");
+        img.src = ruta;
+        contenido.appendChild(img);
+    });
+
+    modal.style.display = "flex";
+}
+
+function cerrarGaleria() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+
+</body>
+</html>
